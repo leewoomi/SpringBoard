@@ -30,4 +30,27 @@
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 
+<!-- 파라미터 인코딩 설정 이 설정이 없으면 클라이언트가 입력한 한글이나 특수문자가 
+	깨지게 됩니다.-->
+	<filter>
+	<filter-name>encoding</filter-name>
+	<filter-class>
+		org.springframework.web.filter.CharacterEncodingFilter
+	</filter-class>
+	<init-param>
+		<param-name>encoding</param-name>
+		<param-value>UTF-8</param-value>
+	</init-param>
+</filter>
+
+<filter-mapping>
+	<filter-name>encoding</filter-name>
+	<url-pattern>/*</url-pattern>
+</filter-mapping>
+
+<error-page>
+	<error-code>404</error-code>
+	<location>/WEB-INF/views/error/404code.jsp</location>
+</error-page>
+
 </web-app>

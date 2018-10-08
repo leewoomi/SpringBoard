@@ -4,5 +4,19 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
-		
+		<!-- 데이터베이스 연동 시 필수 -->
+<bean class="org.springframework.jdbc.datasource.DriverManagerDataSource"
+	id="dataSource">
+	<property value="oracle.jdbc.driver.OracleDriver" 
+	name="driverClassName" />
+	<!-- 자기 컴퓨터이면 192.168.0.101 대신에 localhost
+	포트번호는 확인 - 기본은 1521
+	sid는 orcl 또는 xe가 기본 -->
+	<property value="jdbc:oracle:thin:@192.168.0.101:1521:xe"
+		name="url" />
+		<!--  아이디와 비밀번호  -->
+	<property value="user08" name="username" />
+	<property value="user08" name="password" />
+</bean>
 </beans>
+
