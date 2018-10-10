@@ -25,7 +25,7 @@
 </head>
 <!-- jQuery 2.1.4 -->
 <script
-	src="${pageContext.request.contextPath}/resources/jquery/jquery.min.js"></script>
+	src="${pageContext.request.contextPath}/resources/jquery/jquery.js"></script>
 <body class="skin-blue sidebar-mini">
 	<div class="wrapper">
 		<header class="main-header">
