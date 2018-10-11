@@ -9,4 +9,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		from springuser
 		where email =#{email}
 	</select>
+	
+	
+	
+	<!-- 회원가입을 위한 SQL -->
+	<insert id="register" parameterType="User">
+	insert into springuser(email,pw,nickname,image)
+	values(#{email},#{pw},#{nickname},#{image})
+	</insert>
 </mapper>

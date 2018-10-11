@@ -121,6 +121,32 @@ size="20" pattern="([a-z, A-Z, 가-힣]){2,}" required="required"
 		});
 	}
 
+	function check(){
+		if(idcheck == false){
+			document.getElementById("emailDiv").innerHTML = "이메일 중복검사를 수행하세요!!";
+			document.getElementById("emailDiv").style.color='red';
+			document.getElementById("email").focus();
+			return false;
+		}
+		var pw = document.getElementById("pw").value;
+		var pwconfirm = document.getElementById("pwconfirm").value;
+		if(pw != pwconfirm){
+			document.getElementById("pwDiv").innerHTML = "2개의 비밀번호가 다릅니다!!";
+			document.getElementById("pwDiv").style.color='red';
+			document.getElementById("pw").focus();
+			return false;
+		}
+		
+		var pattern1 = /[0-9]/;	// 숫자 var 
+		pattern2 = /[a-zA-Z]/;	// 문자 var 
+		pattern3 = /[~!@#$%^&*()_+|<>?:{}]/;// 특수문자 
+		if(!pattern1.test(pw) || !pattern2.test(pw) || !pattern3.test(pw) || pw.length < 8) { 
+			alert("비밀번호는 8자리 이상 문자, 숫자, 특수문자로 구성하여야 합니다."); 
+			return false; 
+		} 
+	}
+
+
 </script>
 
 

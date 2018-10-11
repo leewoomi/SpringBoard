@@ -1,7 +1,5 @@
 package com.lee.SpringBoard.domain;
 
-public class VO {
-
 	public class User {
 		private String email;
 		private String pw;
@@ -45,4 +43,4 @@ public class VO {
 			return "User [email=" + email + ", pw=" + pw + ", nickname=" + nickname + ", image=" + image + "]";
 		}
 	}
-}
+

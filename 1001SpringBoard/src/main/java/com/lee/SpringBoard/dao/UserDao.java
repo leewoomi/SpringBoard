@@ -4,6 +4,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.lee.SpringBoard.domain.User;
+
 @Repository
 public class UserDao {
 
@@ -20,5 +22,10 @@ public class UserDao {
 	public String idcheck(String email) {
 		//이름 확인을 잘하고 파라미터 존재 여부를 확인 
 		return sqlSession.selectOne("user.idcheck",email);
+	}
+	
+	//회원가입을 처리할 메소드 
+	public void register(User user) {
+		 sqlSession.insert("user.register",user);
 	}
 }
