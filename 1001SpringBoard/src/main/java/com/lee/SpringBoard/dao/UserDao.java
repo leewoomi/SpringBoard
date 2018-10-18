@@ -1,5 +1,7 @@
 package com.lee.SpringBoard.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -28,4 +30,11 @@ public class UserDao {
 	public void register(User user) {
 		 sqlSession.insert("user.register",user);
 	}
+	
+//로그인을 처리할 메소드 
+	public User login(String email) {
+		return sqlSession.selectOne("user.login",email);
+		
+	}
+
 }

@@ -34,7 +34,7 @@
 			<tr>
 				<td bgcolor="#f5f5f5"><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;비밀번호 확인</font></td>
 				<td>&nbsp;&nbsp;&nbsp; <input type="password" id="pwconfirm" 
-					size="20" required="required" />
+					size="20" required="required" /><div id="pwDiv"></div>
 				</td>
 			</tr>
 			<tr>
