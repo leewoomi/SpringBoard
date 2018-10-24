@@ -1,9 +1,12 @@
 package com.lee.SpringBoard.service;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.InputStreamReader;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -91,6 +94,20 @@ public class UserServiceImpl implements UserService {
 		
 	
 	}
+
+	@Override
+	public User mypage(String email) {
+		
+
+		
+		return userDao.mypage(email) ;
+	}
+
+
+
+
+
+
 
 
 

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,7 +31,9 @@
 	<div class="wrapper">
 		<header class="main-header">
 			<div class="page-header">
-				<h1><a href="${pageContext.request.contextPath}">Spring MVC 게시판</a></h1>
+				<h1>
+					<a href="${pageContext.request.contextPath}">Spring MVC 게시판</a>
+				</h1>
 			</div>
 		</header>
 	</div>
@@ -42,8 +44,20 @@
 				<li role="presentation" class="active"><a href="#">메인</a></li>
 				<li role="presentation"><a href="#">목록보기</a></li>
 				<li role="presentation"><a href="#">게시물 쓰기</a></li>
-				<li role="presentation"><a href="${pageContext.request.contextPath}/user/register">회원가입</a></li>
-				<li role="presentation"><a href="${pageContext.request.contextPath}/user/login">로그인</a></li>
+				<c:if test="${user==null}">
+					<li role="presentation"><a
+						href="${pageContext.request.contextPath}/user/register">회원가입</a></li>
+					<li role="presentation"><a
+						href="${pageContext.request.contextPath}/user/login">로그인</a></li>
+				</c:if>
+
+
+				<c:if test="${user!=null}">
+					<li role="presentation"><a
+						href="${pageContext.request.contextPath}/user/mypage">마이페이지</a></li>
+					<li role="presentation"><a
+						href="${pageContext.request.contextPath}/user/logout">로그아웃</a></li>
+				</c:if>
 			</ul>
 		</section>
 	</aside>

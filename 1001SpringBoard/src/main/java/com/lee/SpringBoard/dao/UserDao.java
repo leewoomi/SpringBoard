@@ -36,5 +36,10 @@ public class UserDao {
 		return sqlSession.selectOne("user.login",email);
 		
 	}
+	
+	//mypage
+	public User mypage(String email) {
+		return sqlSession.selectOne("user.mypage", email);
+	}
 
 }

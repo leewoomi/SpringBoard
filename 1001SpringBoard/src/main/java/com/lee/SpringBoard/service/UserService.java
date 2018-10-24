@@ -1,6 +1,7 @@
 package com.lee.SpringBoard.service;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
@@ -18,6 +19,10 @@ public interface UserService {
 
 	//로그인 체크 메소드 
 	public User login(HttpServletRequest request);
+
+	
+
+	public User mypage(String email);
 
 
 }
