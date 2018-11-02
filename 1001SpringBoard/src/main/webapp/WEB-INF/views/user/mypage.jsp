@@ -3,7 +3,7 @@
 <%@include file="../include/header.jsp"%>
 
 <section class="content">
-	<!-- 회원가입 -->
+	<!-- My page -->
 	<form id="registerform" enctype="multipart/form-data" method="post"
 		onsubmit="return check()">
 		<p align="center">
@@ -12,7 +12,7 @@
 				<td colspan="3" align="center"><h2>my page</h2></td>
 					<tr>
 				<td rowspan="5" align="center">						<p></p>
-				<img id="img" width="100" height="100" border="1" src="${pageContext.request.contextPath}/userimage/${user.image}"/> <br />
+				<img id="img" width="100" height="100" border="1" src="../userimage/${user.image}"/> <br />
 				<br /> <input type="file" id="image" name="image"  /><br /></td>
 			</tr>
 
@@ -59,7 +59,7 @@ size="20" pattern="([a-z, A-Z, 가-힣]){2,}" required="required"
 <%@include file="../include/footer.jsp"%>
 
 <script>
-	var filename = ''
+	var filename =''
 	//change 이벤트가 발생하면 readURL 호출
 	//change - 내용이 변경되면 호출되는 이벤트
 	document.getElementById("image").addEventListener('change', function() {

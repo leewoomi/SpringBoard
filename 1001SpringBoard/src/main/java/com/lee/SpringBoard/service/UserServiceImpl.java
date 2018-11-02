@@ -1,12 +1,13 @@
 package com.lee.SpringBoard.service;
 
-import java.io.BufferedReader;
+
 import java.io.File;
-import java.io.InputStreamReader;
+
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+
+
 
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,12 +40,13 @@ public class UserServiceImpl implements UserService {
 
 		// 파일 업로드 처리
 		// 업로드할 디렉토리를 문자열로 생성
+		@SuppressWarnings("deprecation")
 		String uploadPath = request.getRealPath("/userimage");
 		// 파일 이름 만들기 - 중복을 시키지 않기 위해서 UUID와 원본 파일을 합쳐서 생성
 		UUID uuid = UUID.randomUUID();
 		String filename = image.getOriginalFilename();
 		String filepath = uploadPath + "/" + uuid + "_" + filename;
-
+System.out.println(filepath);
 		// 파일 업로드와 데이터베이스 작업
 		User user = new User();
 		File file = new File(filepath);
@@ -53,7 +55,10 @@ public class UserServiceImpl implements UserService {
 			// 비밀번호는 암호화
 			user.setPw(BCrypt.hashpw(pw, BCrypt.gensalt()));
 			user.setNickname(nickname);
-			user.setImage(filename);
+			
+			//파일 이름 중복을 막기 위해서 UUID와 원본 파일을 합쳐서 생성한 이름을 저장 
+			user.setImage(uuid + "_" + filename);
+			
 
 			// 파일 업로드
 			image.transferTo(file);
@@ -96,12 +101,16 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public User mypage(String email) {
-		
+	public User mypage(HttpServletRequest request) {
+		String email = request.getParameter("email");
+	User user = userDao.mypage(email);
+	
 
-		
-		return userDao.mypage(email) ;
+	
+		return user;
 	}
+
+
 
 
 

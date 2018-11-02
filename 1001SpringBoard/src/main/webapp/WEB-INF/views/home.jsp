@@ -10,6 +10,7 @@
 			<c:if test="${user==null}">
 				<a href="${pageContext.request.contextPath}/user/login"><h3 class="box-title">로그인</h3></a>
 				<a href="${pageContext.request.contextPath}/user/register"><h3 class="box-title">회원가입</h3></a>
+				
 					</c:if>
 			</div>
 	
@@ -18,6 +19,7 @@
 			<c:if test="${user!=null }">
 				<a href="${pageContext.request.contextPath}/user/logout"><h3 class="box-title">로그아웃</h3></a>
 				<a href="${pageContext.request.contextPath}/user/mypage"><h3 class="box-title">Mypage</h3></a>
+				<a href="${pageContext.request.contextPath}/board/write"><h3 class="box-title">게시판 글쓰기</h3></a>
 						</c:if>
 			</div>
 </div>

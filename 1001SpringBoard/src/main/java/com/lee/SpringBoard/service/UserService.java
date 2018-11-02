@@ -1,7 +1,7 @@
 package com.lee.SpringBoard.service;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+
 
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
@@ -22,7 +22,7 @@ public interface UserService {
 
 	
 
-	public User mypage(String email);
+	public User mypage(HttpServletRequest request);
 
 
 }
