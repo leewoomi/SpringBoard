@@ -84,7 +84,7 @@ public class UserController {
 		User user = userService.mypage(request);
 
 
-		return "redirect:mypage";
+		return "redirect:/";
 	}
 
 }

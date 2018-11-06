@@ -19,7 +19,7 @@
 			<tr>
 				<td bgcolor="#f5f5f5"><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;이메일</font></td>
 				<td>&nbsp;&nbsp;&nbsp; <input type="email" name="email"
-					id="email" size="30" maxlength=50 value="${user.email}"readonly="readonly" />
+					id="email" size="30" maxlength=50 value="${user.email}" readonly="readonly" />
 					<div id="emailDiv"></div>
 				</td>
 			</tr>
@@ -52,6 +52,7 @@ size="20" pattern="([a-z, A-Z, 가-힣]){2,}" required="required"
 				</td>
 			</tr>
 		</table>
+		<a href="#">탈퇴하기</a>
 	</form>
 	<br />
 	<br />
@@ -88,20 +89,9 @@ size="20" pattern="([a-z, A-Z, 가-힣]){2,}" required="required"
 		}
 	};
 	
-	
-	
-	
-			
-	
-
 
 	function check(){
-		if(idcheck == false){
-			document.getElementById("emailDiv").innerHTML = "이메일 중복검사를 수행하세요!!";
-			document.getElementById("emailDiv").style.color='red';
-			document.getElementById("email").focus();
-			return false;
-		}
+	
 		var pw = document.getElementById("pw").value;
 		var pwconfirm = document.getElementById("pwconfirm").value;
 		if(pw != pwconfirm){
@@ -109,9 +99,13 @@ size="20" pattern="([a-z, A-Z, 가-힣]){2,}" required="required"
 			document.getElementById("pwDiv").style.color='red';
 			document.getElementById("pw").focus();
 			return false;
+		}else if(pw == pwconfirm){
+			alert("비밀번호 변경 성공");
+		
+			return true;
 		}
 		
-		var pattern1 = /[0-9]/;	// 숫자 var 
+		var pattern1 = /[0-9]/;// 숫자 var 
 		pattern2 = /[a-zA-Z]/;	// 문자 var 
 		pattern3 = /[~!@#$%^&*()_+|<>?:{}]/;// 특수문자 
 		if(!pattern1.test(pw) || !pattern2.test(pw) || !pattern3.test(pw) || pw.length < 8) { 

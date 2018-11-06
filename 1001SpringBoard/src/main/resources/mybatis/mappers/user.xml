@@ -32,4 +32,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	from springuser
 	where email =#{email}
 	</select>
+	
+	
+	<update id="userUpdate" parameterType="java.lang.String">
+	update springuser
+	set pw=#{pw}
+	where email=#{email}
+	</update>
+	
+	<delete id="userDelete" parameterType="java.lang.String">
+	delete from springuser where email=#{email}
+	</delete>
 </mapper>
