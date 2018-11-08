@@ -89,5 +89,11 @@ public class UserController {
 	}
 	
 	
+	@RequestMapping(value = "/user/userUpdate", method = RequestMethod.GET)
+	public void userUpdate(Model model) {
+	}
+
+	
+	
 
 }

@@ -42,14 +42,16 @@
 		<section class="sidebar">
 			<ul class="nav nav-tabs">
 				<li role="presentation" class="active"><a href="#">메인</a></li>
-				<li role="presentation"><a href="${pageContext.request.contextPath}/board/list">목록보기</a></li>
-				<li role="presentation"><a href="${pageContext.request.contextPath}/board/write">게시물 쓰기</a></li>
+				<li role="presentation"><a
+					href="${pageContext.request.contextPath}/board/list">목록보기</a></li>
+				<li role="presentation"><a
+					href="${pageContext.request.contextPath}/board/write">게시물 쓰기</a></li>
 				<c:if test="${user==null}">
 					<li role="presentation"><a
 						href="${pageContext.request.contextPath}/user/register">회원가입</a></li>
 					<li role="presentation"><a
 						href="${pageContext.request.contextPath}/user/login">로그인</a></li>
-						
+
 				</c:if>
 
 
