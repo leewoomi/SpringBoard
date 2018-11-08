@@ -18,6 +18,9 @@ public class BoardTest {
 	@Test
 	public void sqlSessionTest()throws Exception{
 		System.out.println(sqlSession);
+		
+
+		
 	}
 }
 

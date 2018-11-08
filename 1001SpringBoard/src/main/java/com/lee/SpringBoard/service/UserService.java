@@ -24,7 +24,5 @@ public interface UserService {
 
 	public User mypage(HttpServletRequest request);
 
-	
-	
 
 }

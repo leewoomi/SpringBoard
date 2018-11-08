@@ -1,5 +1,8 @@
 package com.lee.SpringBoard;
 
+import java.util.List;
+
+import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -52,9 +55,11 @@ public class BoardController {
 		}
 	}
 	
+	//목록보기 요청을 처리하기 위한 메소드 
 	@RequestMapping(value="board/list",method=RequestMethod.GET)
-	public String list(Model model) {
-		Board board= new Board();
+	public String list(HttpServletRequest request,Model model) {
+		List<Board> list = boardService.list(request);
+		model.addAttribute("list",list);
 		
 		return "board/list";
 	}

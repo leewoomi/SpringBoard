@@ -68,7 +68,7 @@ public class UserController {
 	// 뷰 이름이 /user/login 이 됩니다.
 	public String logout(HttpSession session) {
 
-		// 세션을 초기
+		// 세션을 초기화
 		session.invalidate();
 		return "redirect:../";
 	}
@@ -82,9 +82,12 @@ public class UserController {
 	@RequestMapping(value = "/user/mypage", method = RequestMethod.POST)
 	public String mypage(HttpServletRequest request, HttpSession session, RedirectAttributes attr) {
 		User user = userService.mypage(request);
-
-
-		return "redirect:/";
+		System.out.println(user);
+		
+		
+		return "redirect:../user/userUpdate";
 	}
+	
+	
 
 }

@@ -4,7 +4,7 @@
 
 <section class="content">
 	<!-- My page -->
-	<form id="registerform" enctype="multipart/form-data" method="post"
+	<form id="mypageform" enctype="multipart/form-data" method="post"
 		onsubmit="return check()">
 		<p align="center">
 		<table border="1" width="50%" height="80%" align='center'>
@@ -45,14 +45,14 @@ size="20" pattern="([a-z, A-Z, 가-힣]){2,}" required="required"
 			</tr>
 					<tr>
 				<td align="center" colspan="3">
-					<p></p> <input type="submit" value="정보수정" class="btn btn-warning" />
+					<p></p> <input type="submit" value="정보수정" class="btn btn-warning"/>
 					<input type="button" value="메인으로" class="btn btn-success"
 	onclick="javascript:window.location='../'">
 					<p></p>
 				</td>
 			</tr>
 		</table>
-		<a href="#">탈퇴하기</a>
+		<a href="/user/userDelete">탈퇴하기</a>
 	</form>
 	<br />
 	<br />
@@ -60,6 +60,9 @@ size="20" pattern="([a-z, A-Z, 가-힣]){2,}" required="required"
 <%@include file="../include/footer.jsp"%>
 
 <script>
+;
+
+
 	var filename =''
 	//change 이벤트가 발생하면 readURL 호출
 	//change - 내용이 변경되면 호출되는 이벤트
@@ -100,6 +103,8 @@ size="20" pattern="([a-z, A-Z, 가-힣]){2,}" required="required"
 			document.getElementById("pw").focus();
 			return false;
 		}else if(pw == pwconfirm){
+			document.getElementById("pwDiv").innerHTML = "비밀번호 일치";
+			document.getElementById("pwDiv").style.color='blue';
 			alert("비밀번호 변경 성공");
 		
 			return true;

@@ -1,10 +1,12 @@
 package com.lee.SpringBoard.domain;
 
+import java.util.Date;
+
 public class Board {
 	private int bno;
 	private String title;
 	private String content;
-	private String regdate;
+	private Date regdate;
 	private int readcnt;
 	private String ip;
 	private String email;
@@ -28,10 +30,10 @@ public class Board {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public String getRegdate() {
+	public Date getRegdate() {
 		return regdate;
 	}
-	public void setRegdate(String regdate) {
+	public void setRegdate(Date regdate) {
 		this.regdate = regdate;
 	}
 	public int getReadcnt() {
