@@ -18,6 +18,7 @@
 			<div class="box-header with-border">
 			<c:if test="${user!=null }">
 				<a href="${pageContext.request.contextPath}/user/logout"><h3 class="box-title">로그아웃</h3></a>
+				<a href="${pageContext.request.contextPath}/user/userDelete"><h3 class="box-title">회원 탈퇴</h3></a>
 				<a href="${pageContext.request.contextPath}/user/mypage"><h3 class="box-title">마이페이지</h3></a>
 				<a href="${pageContext.request.contextPath}/board/write"><h3 class="box-title">게시판 글쓰기</h3></a>
 						</c:if>

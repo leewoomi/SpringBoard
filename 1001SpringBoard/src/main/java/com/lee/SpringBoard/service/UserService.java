@@ -20,9 +20,14 @@ public interface UserService {
 	//로그인 체크 메소드 
 	public User login(HttpServletRequest request);
 
-	
+	//마이페이지 
+	public User mypage(MultipartHttpServletRequest request);
 
-	public User mypage(HttpServletRequest request);
+	//회원정보 수정 
+	public void userUpdate(MultipartHttpServletRequest request);
+ 
+	//탈퇴 
+	public void userDelete(HttpServletRequest request);
 
 
 }

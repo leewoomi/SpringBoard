@@ -26,19 +26,30 @@ public class UserDao {
 
 	// 회원가입을 처리할 메소드
 	public void register(User user) {
-		sqlSession.insert("user.register", user);
+		sqlSession.insert("user.userRegister", user);
 	}
 
 //로그인을 처리할 메소드 
 	public User login(String email) {
-		return sqlSession.selectOne("user.login", email);
+		return sqlSession.selectOne("user.userLogin", email);
 
 	}
 
 	// mypage
 	public User mypage(String email) {
-		return sqlSession.selectOne("user.mypage", email);
+		return sqlSession.selectOne("user.userGet", email);
 	}
 
+	//회원정보 수정 
+	public void userUpdate(User user) {
+		sqlSession.update("user.userUpdate", user );
+	}
 
+	
+	//탈퇴
+	public void userDelete(User user) {
+	System.out.println("userDao.userDelete :"+ sqlSession.delete("user.userDelete", user));
+		 sqlSession.delete("user.userDelete", user);
+	
+	}
 }

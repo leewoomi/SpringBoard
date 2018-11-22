@@ -6,6 +6,25 @@
 <head>
 <meta charset="UTF-8">
 <title>Spring MVC Board</title>
+<style>
+.mymenu ul {
+	display: none;
+	list-style-type: none;
+}
+
+.mymenu:hover ul {
+	display: block;
+	list-style-type: none;
+}
+
+.mymenu:hover ul li {
+	display: inline-block;
+	list-style-type: none;
+	border: none;
+	padding: 10px;
+	float: left;
+}
+</style>
 <!-- 너비를 디바이스의 크기에 맞추도록 설정 -->
 <meta
 	content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'
@@ -56,10 +75,16 @@
 
 
 				<c:if test="${user!=null}">
-					<li role="presentation"><a
-						href="${pageContext.request.contextPath}/user/mypage">마이페이지</a></li>
+					<li role="presentation" class="mymenu"><a href="#">회원정보</a>
+						<ul>
+							<li role="presentation"><a
+								href="${pageContext.request.contextPath}/user/mypage">마이페이지</a></li>
+							<li role="presentation"><a
+								href="${pageContext.request.contextPath}/user/userDelete">회원탈퇴</a></li>
+						</ul></li>
 					<li role="presentation"><a
 						href="${pageContext.request.contextPath}/user/logout">로그아웃</a></li>
+
 				</c:if>
 			</ul>
 		</section>

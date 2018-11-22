@@ -13,34 +13,34 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	
 	<!-- 회원가입을 위한 SQL -->
-	<insert id="register" parameterType="User">
+	<insert id="userRegister" parameterType="User">
 	insert into springuser(email,pw,nickname,image)
 	values(#{email},#{pw},#{nickname},#{image})
 	</insert>
 	
 
 	<!-- 로그인 처리를 위한 SQL : 비밀번호가 암호화 되어 있어서 Service에서 비입력받는 것 : email 돌려주는 email,pw,nickname,image -->
-	<select id="login" parameterType="java.lang.String" resultType="User">
+	<select id="userLogin" parameterType="java.lang.String" resultType="User">
 	
 	select email, pw, nickname, image
 	from springuser
 	where email=#{email}
 	</select> 
 	
-	<select id="mypage" resultType="User" parameterType="java.lang.String">
+	<select id="userGet" resultType="User" parameterType="java.lang.String">
 	select email,pw,nickname, image
 	from springuser
 	where email =#{email}
 	</select>
 	
 	
-	<update id="userUpdate" parameterType="java.lang.String">
+	<update id="userUpdate" parameterType="User">
 	update springuser
-	set pw=#{pw}
+	set pw=#{pw},nickname=#{nickname},image=#{image}
 	where email=#{email}
 	</update>
 	
-	<delete id="userDelete" parameterType="java.lang.String">
-	delete from springuser where email=#{email}
+	<delete id="userDelete">
+	delete from springuser where email=#{email} and pw=#{pw}
 	</delete>
 </mapper>
