@@ -145,15 +145,43 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public void userDelete(HttpServletRequest request) {
+	public int userDelete(HttpServletRequest request) {
+		int result=0;
 		String email = request.getParameter("email");
 		String pw = request.getParameter("pw");
-		User user = new User();
-		user.setEmail(email);
-		user.setPw(BCrypt.hashpw(pw, BCrypt.gensalt()));
-		userDao.userDelete(user);
-		System.out.println("userDelete :" + user);
+	
 
+		//이메일 가지고 데이터를 조회
+		User user = userDao.login(email);
+		
+		System.out.println("userDelete user:" + user);
+		if (user != null) {
+			
+		System.out.println("email 확인 ");
+			// 비밀번호 확인
+		System.out.println("BCrypt.checkpw(pw, user.getPw()):"+BCrypt.checkpw(pw, user.getPw()));
+		System.out.println("pw:" +pw);
+		System.out.println("user.getPw() : " + user.getPw());
+		if (BCrypt.checkpw(pw, user.getPw())) {
+			System.out.println("비밀번호 일치");
+				//데이터가 있으면 암호화된 비밀번호와 입력한 비밀번호가 같으면
+				//email 에 해당하는 데이터를 삭제
+				userDao.userDelete(email);
+			
+				System.out.println("userDelete :" + email);
+				result = 1;
+				
+			} else {
+				System.out.println("비밀번호 불일치");
+				// 비밀번호가 틀렸으므로 null
+
+				user = null;
+				//데이터가 없으면 0을 리턴
+				result = 0;
+			}
+		}
+	System.out.println("result = "+ result);
+		return result;
 	}
 
 }

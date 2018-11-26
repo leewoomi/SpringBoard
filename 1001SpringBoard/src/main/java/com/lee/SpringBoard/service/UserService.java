@@ -27,7 +27,7 @@ public interface UserService {
 	public void userUpdate(MultipartHttpServletRequest request);
  
 	//탈퇴 
-	public void userDelete(HttpServletRequest request);
+	public int userDelete(HttpServletRequest request);
 
 
 }

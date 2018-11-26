@@ -106,13 +106,26 @@ public class UserController {
 	
 	@RequestMapping(value = "/user/userDelete", method = RequestMethod.POST)
 	public String userDelete(HttpServletRequest request, HttpSession session, RedirectAttributes attr) {
-	 userService.userDelete(request);
 
+		userService.userDelete(request);
 
-		// 세션을 초기화 
-		session.invalidate();
+		User user = userService.login(request);
+		if (user == null) {
+			// 비밀번호 불일치 
+			// RedirectAttributes는 리다이렉트 될 때 한 번만 데이터를 전달
+			attr.addFlashAttribute("msg", "잘못된 비밀번호 입니다. 다시 입력해주세.");
+			return "redirect:userDelete";
+		} else {
+			
 		
-		return "redirect:login";
+
+			// 세션을 초기화 
+			session.invalidate();
+			
+			return "redirect:login";
+		}
+
+
 	}
 	
 }
