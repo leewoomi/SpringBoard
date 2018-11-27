@@ -47,9 +47,9 @@ public class UserDao {
 
 	
 	//탈퇴
-	public void userDelete(String email) {
+	public int userDelete(String email) {
 	System.out.println("userDao.userDelete :"+ sqlSession.delete("user.userDelete",email));
-		 sqlSession.delete("user.userDelete", email);
+		 return sqlSession.delete("user.userDelete", email);
 	
 	}
 }

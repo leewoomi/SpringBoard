@@ -81,11 +81,17 @@ table {
 	<!--<p>${list}</p>-->
 
 	<!-- 검색 -->
-	<div id="boardSearch">
-		<input type="search" size="100" name="search" id="search"/>
-		<button type="button">검색</button>
+	
+	<div>
+		<form action="" method="get">
+			<div id="boardSearch">
+				<input type="search" size="100" name="search" id="search" /> <input
+					type="submit">
+			</div>
+		</form>
 	</div>
-
+	
+	
 	<!-- 게시판 리스트 테이블 -->
 	<div id="boardDiv">
 		<table class="boardlist">
@@ -103,7 +109,7 @@ table {
 					<td class="bno">${list.bno}</td>
 					<td class="nickname">${list.nickname}</td>
 					<td class="title" id="tdTitle"><a
-						href="boardDetail?bno=${list.bno}">${list.title}</a></td>
+						href="detail?bno=${list.bno}">${list.title}</a></td>
 					<td class="dispdate">${list.dispdate}</td>
 					<td class="readcnt">${list.readcnt}</td>
 				</tr>

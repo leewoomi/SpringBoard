@@ -1,6 +1,6 @@
 package com.lee.SpringBoard.service;
 
-import java.util.ArrayList;
+
 import java.util.Date;
 import java.util.List;
 
@@ -73,6 +73,15 @@ public class BoardServiceImpl implements BoardService {
 		}
 
 		return list;
+	}
+
+	@Override
+	public Board detail(int bno) {
+
+		Board board = boardDao.detail(bno);
+	System.out.println("boardDetail:"+ board);
+
+		return board;
 	}
 
 }

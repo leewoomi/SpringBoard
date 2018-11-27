@@ -17,11 +17,17 @@ public class BoardDao {
 	
 	//게시글 저장을 위한 메소드
 	public int write(Board board) {
-		return sqlSession.insert("board.write", board);
+		return sqlSession.insert("board.boardWrite", board);
 	}
 	
 	//게시물 목록 보기를 구현하기 위한 메소드 
 	public List<Board> list() {
-		return sqlSession.selectList("board.list");
+		return sqlSession.selectList("board.boardList");
+	}
+	
+	//상세보기를 위한 메소드 
+	public Board detail(int bno) {
+		return 	 sqlSession.selectOne("board.boardDetail",bno);
+		
 	}
 }

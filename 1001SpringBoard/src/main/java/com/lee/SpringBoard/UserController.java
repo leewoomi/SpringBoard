@@ -94,38 +94,34 @@ public class UserController {
 		userService.userUpdate(request);
 
 		// 세션을 초기화
-		//로그아웃하지 않으면 변경 전 정보가 보임 
+		// 로그아웃하지 않으면 변경 전 정보가 보임
 		session.invalidate();
 		return "redirect:login";
 	}
 
 	@RequestMapping(value = "/user/userDelete", method = RequestMethod.GET)
 	public void userDelete(Model model) {
-		
+
 	}
-	
+
 	@RequestMapping(value = "/user/userDelete", method = RequestMethod.POST)
 	public String userDelete(HttpServletRequest request, HttpSession session, RedirectAttributes attr) {
 
-		userService.userDelete(request);
-
-		User user = userService.login(request);
-		if (user == null) {
-			// 비밀번호 불일치 
+		int user = userService.userDelete(request);
+		System.out.println("UserController-userDelete:" + user);
+		if (user == 0) {
+			// 비밀번호 불일치
 			// RedirectAttributes는 리다이렉트 될 때 한 번만 데이터를 전달
-			attr.addFlashAttribute("msg", "잘못된 비밀번호 입니다. 다시 입력해주세.");
+			attr.addFlashAttribute("msg", "비밀번호가 일치하지 않습니다. 다시 입력해주세요.");
 			return "redirect:userDelete";
 		} else {
-			
-		
 
-			// 세션을 초기화 
+			// 세션을 초기화
 			session.invalidate();
-			
+
 			return "redirect:login";
 		}
 
-
 	}
-	
+
 }

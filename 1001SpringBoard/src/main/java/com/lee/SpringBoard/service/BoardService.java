@@ -12,4 +12,7 @@ public interface BoardService {
 
 	// 게시글 목록 보기를 위한 메소드
 	public List<Board> list(HttpServletRequest request);
+	
+	//게시글 상세보기를 위한 메소드 
+	public Board detail(int bno);
 }

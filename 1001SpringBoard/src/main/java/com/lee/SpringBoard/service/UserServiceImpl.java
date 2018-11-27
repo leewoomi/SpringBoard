@@ -149,12 +149,12 @@ public class UserServiceImpl implements UserService {
 		int result=0;
 		String email = request.getParameter("email");
 		String pw = request.getParameter("pw");
-	
+		System.out.println("email:"+ email+",pw:"+pw);
 
 		//이메일 가지고 데이터를 조회
 		User user = userDao.login(email);
 		
-		System.out.println("userDelete user:" + user);
+		System.out.println("데이터 조회:" + user);
 		if (user != null) {
 			
 		System.out.println("email 확인 ");
@@ -174,7 +174,6 @@ public class UserServiceImpl implements UserService {
 			} else {
 				System.out.println("비밀번호 불일치");
 				// 비밀번호가 틀렸으므로 null
-
 				user = null;
 				//데이터가 없으면 0을 리턴
 				result = 0;

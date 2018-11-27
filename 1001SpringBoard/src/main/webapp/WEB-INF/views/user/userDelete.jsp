@@ -39,8 +39,8 @@
 					placeholder="이메일을 입력하세요" class="form-control" />
 			</div>
 			<div class="form-group">
-				<label for="password">비밀번호</label> <input type="password" name="password"
-					id="password" required="required" placeholder="비밀번호를 입력하세요" class="form-control" />
+				<label for="pw">비밀번호</label> <input type="password" name="pw"
+					id="pw" required="required" placeholder="비밀번호를 입력하세요" class="form-control" />
 			</div>
 
 			<input type="submit" class="yesorno" value="탈퇴하기" onclick="yes()" /> <input
@@ -54,8 +54,11 @@
 </section>
 <%@include file="../include/footer.jsp"%>
 <script>
+
 	function yes() {
-		alert("안녕히가세요.");
+		var pw = document.getElementById("pw").value;
+		//alert(pw);
+	
 	}
 </script>
 
