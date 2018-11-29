@@ -78,8 +78,10 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public Board detail(int bno) {
 
+	
 		Board board = boardDao.detail(bno);
 	System.out.println("boardDetail:"+ board);
+	
 
 		return board;
 	}

@@ -83,7 +83,7 @@ table {
 	<!-- 검색 -->
 	
 	<div>
-		<form action="" method="get">
+		<form method="get">
 			<div id="boardSearch">
 				<input type="search" size="100" name="search" id="search" /> <input
 					type="submit">
@@ -94,6 +94,7 @@ table {
 	
 	<!-- 게시판 리스트 테이블 -->
 	<div id="boardDiv">
+	
 		<table class="boardlist">
 			<tr>
 				<th class="bno">글 번호</th>
@@ -115,6 +116,7 @@ table {
 				</tr>
 			</table>
 		</c:forEach>
+
 	</div>
 </section>
 <%@include file="../include/footer.jsp"%>

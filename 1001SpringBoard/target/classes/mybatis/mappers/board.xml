@@ -4,20 +4,26 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="board">
 	<insert id="boardWrite" parameterType="Board">
-		insert into springboard(bno, title, content, ip, email)
-		values(boardseq.nextval, #{title}, #{content}, #{ip}, #{email})
+		insert into
+		springboard(bno, title, content, ip, email)
+		values(boardseq.nextval,
+		#{title}, #{content}, #{ip}, #{email})
 	</insert>
 
 	<select id="boardList" resultType="Board">
-		select bno, title, regdate, readcnt, nickname
+		select bno, title, regdate,
+		readcnt, nickname
 		from springuser u, springboard b
-		where u.email = b.email
+		where u.email =
+		b.email
 		order by regdate desc
 	</select>
-	
-	<select id="boardDetail" parameterType="java.lang.Integer" resultType="Board">
-	select title, content, email
-	from springboard
-	where bno=#{bno}
+
+	<select id="boardDetail" parameterType="java.lang.Integer"
+		resultType="Board">
+		select bno, title, content, regdate, readcnt, nickname
+		from springuser u,
+		springboard b
+		where u.email = b.email and b.bno=#{bno}
 	</select>
 </mapper>

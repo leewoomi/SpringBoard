@@ -1,7 +1,7 @@
 package com.lee.SpringBoard.service;
 
 import java.io.File;
-
+import java.io.UnsupportedEncodingException;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
@@ -96,6 +96,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public User mypage(MultipartHttpServletRequest request) {
+	
 		String email = request.getParameter("email");
 		User user = userDao.mypage(email);
 		return user;

@@ -21,7 +21,7 @@
 <div class="form-group">
 	<label>작성자</label> 
 	<input type="text" name="nickname" value="${user.nickname}" 
-	class="form-control" readonly="readonly">			
+	class="form-control" readonly="readonly"/>			
 </div>
 </div>
 

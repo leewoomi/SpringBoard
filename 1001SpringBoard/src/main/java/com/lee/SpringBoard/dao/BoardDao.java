@@ -2,6 +2,8 @@ package com.lee.SpringBoard.dao;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -27,7 +29,9 @@ public class BoardDao {
 	
 	//상세보기를 위한 메소드 
 	public Board detail(int bno) {
-		return 	 sqlSession.selectOne("board.boardDetail",bno);
+		Board board=  sqlSession.selectOne("board.boardDetail",bno);
+	System.out.println(" sqlSession.selectOne(\"board.boardDetail\",bno):"+board);
+		return 	board;
 		
 	}
 }

@@ -64,13 +64,16 @@ public class BoardController {
 		return "board/list";
 	}
 
+
+
 	// 글 읽기
 	@RequestMapping(value = "board/detail", method = RequestMethod.GET)
-	public String detail(@RequestParam("bno") int bno, Model model) {
+	public String detail(@RequestParam("bno") int bno,Model model) {
 
 		Board board = boardService.detail(bno);
-System.out.println("boardDetailController:"+ board);
-System.out.println("bno:"+bno);
+		model.addAttribute("board", board);
+		System.out.println("boardDetailController:" + board);
+		System.out.println(model.addAttribute("board", board));
 		return "board/detail";
 	}
 }
